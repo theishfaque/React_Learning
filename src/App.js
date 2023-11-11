@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useRef } from "react";
+
+
 
 function App() {
+const formInputRef = React.useRef(null)
+
+  const focusInput = () => {
+    formInputRef.current.focus()
+    
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>using useRef to access underlying DOM</h1>
+      <input ref={formInputRef} type="text"/>
+      <button onClick={focusInput}>Focus Input</button>
     </div>
   );
 }
